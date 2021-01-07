@@ -6,6 +6,7 @@ class CreatePlants < ActiveRecord::Migration[6.0]
       t.string :water_frequency
       t.string :sun_needed
       t.boolean :alive
+      t.belongs_to :user
 
       t.timestamps
     end
