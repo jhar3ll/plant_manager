@@ -1,9 +1,9 @@
 import React from 'react'
-
+import PlantsContainer from './PlantsContainer'
 const App = () => {
         return (
             <div>
-                Hello World!
+                <PlantsContainer />
             </div>
         )
 }
