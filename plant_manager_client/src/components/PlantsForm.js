@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { addPlant } from '../actions/plantsActions'
+import { connect } from 'react-redux'
 
 class PlantsForm extends Component {
 
@@ -7,15 +9,20 @@ class PlantsForm extends Component {
         home_date: '',
         water_frequency: '',
         sun_needed: '',
-        alive: 'yes'
+        alive: true
     }
 
     handleChange = event => {
-        const { name, value } = event.target 
+        const { name, value } = event.target
 
         this.setState({
             [name]: value
         })
+    }
+
+    handleSubmit = event => {
+        event.preventDefault()
+        this.props.addPlant(this.state)
     }
 
     render() {
@@ -25,7 +32,7 @@ class PlantsForm extends Component {
                <input type='text' value={this.state.name} onChange={this.handleChange} name='name'/>
                <br />
                <label>When did you bring it home?</label>
-               <input type='datetime-local' value={this.state.home_date} onChange={this.handleChange} name='home_date'/>
+               <input type='date' value={this.state.home_date} onChange={this.handleChange} name='home_date'/>
                <br />
                <label>How often to water?</label>
                <select defaultValue="">
@@ -48,8 +55,8 @@ class PlantsForm extends Component {
                <label>Is it alive? </label>
                <select defaultValue="">
                    <option hidden value=""></option>
-                   <option value={this.state.alive} onChange={this.handleChange} name='alive'>Yes</option>
-                   <option value={this.state.alive} onChange={this.handleChange} name='alive'>No</option>
+                   <option value={this.state.alive} onChange={this.handleChange} name='alive'>For now</option>
+                   <option value={this.state.alive} onChange={this.handleChange} name='alive'>No :( </option>
               </select>
                <br />
                <input type='submit' value='Create Plant'/>
@@ -58,4 +65,4 @@ class PlantsForm extends Component {
     }
 }
 
-export default PlantsForm
+export default connect(null, { addPlant })(PlantsForm)
