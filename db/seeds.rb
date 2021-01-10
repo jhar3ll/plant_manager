@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# t.string :name
+# t.string :home_date
+# t.string :water_frequency
+# t.string :sun_needed
+# t.string :health
+
+Plant.create(name: 'Succulent', home_date: '1/10/21', water_frequency: '3x per day', sun_needed: '6 hours', health: 'good')
+Plant.create(name: 'Basil', home_date: '1/10/21', water_frequency: '2x per day', sun_needed: '6 hours', health: 'good')
+Plant.create(name: 'Rosemary', home_date: '1/10/21', water_frequency: '1x per day', sun_needed: '6 hours', health: 'good')
