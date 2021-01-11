@@ -4,7 +4,6 @@ class CreatePlants < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :home_date
       t.string :water_frequency
-      t.string :sun_needed
       t.string :health
       t.belongs_to :user
 
