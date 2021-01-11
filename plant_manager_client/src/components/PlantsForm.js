@@ -8,8 +8,7 @@ class PlantsForm extends Component {
         name: '',
         home_date: '',
         water_frequency: '',
-        sun_needed: '',
-        health: 'good'
+        health: 'Good'
     }
    
 
@@ -17,7 +16,7 @@ class PlantsForm extends Component {
         const { name, value } = event.target
 
         this.setState({
-            [name]: value.toString()
+            [name]: value
         })
     }
 
@@ -34,22 +33,14 @@ class PlantsForm extends Component {
                <br />
 
                <label>Brought Home:</label>
-               <input type='text' value={this.state.home_date} onChange={this.handleChange} name='home_date' />
+               <input type='date' value={this.state.home_date} onChange={this.handleChange} name='home_date' />
                <br />
 
                <label>Water Frequency:</label>
                <input type='text' placeholder='times per day' value={this.state.water_frequency} onChange={this.handleChange} name='water_frequency'/>
                <br />
 
-               <label> Sun Needed:</label>
-               <input type='text' placeholder='hours of sun' value={this.state.sun_needed} onChange={this.handleChange} name='sun_needed'/>
-               <br />
-
-               <input type='hidden' value={this.state.health} onChange={this.handleChange} name='health'/>
-               <br />
-
-             
-               <input type='submit' value='Create Plant'/>
+               <input type='submit' value='Add Plant'/>
            </form>
         )
     }

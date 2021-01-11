@@ -4,6 +4,12 @@ export const plantsReducer = (state = [], action) => {
             return action.payload
         case 'ADD_PLANT':
             return [...state, action.payload]
+        case 'PLANT_OK':
+            return state
+        case 'PLANT_GOOD':
+            return state
+        case 'PLANT_DEAD':
+            return state
         default:
             return state
     }
