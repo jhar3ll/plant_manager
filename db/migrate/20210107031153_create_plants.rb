@@ -3,8 +3,9 @@ class CreatePlants < ActiveRecord::Migration[6.0]
     create_table :plants do |t|
       t.string :name
       t.string :home_date
-      t.string :water_frequency
+      t.integer :water_frequency
       t.string :health
+      t.integer :deprived_count
       t.belongs_to :user
 
       t.timestamps

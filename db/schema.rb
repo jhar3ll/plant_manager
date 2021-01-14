@@ -15,8 +15,9 @@ ActiveRecord::Schema.define(version: 2021_01_07_031153) do
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "home_date"
-    t.string "water_frequency"
+    t.integer "water_frequency"
     t.string "health"
+    t.integer "deprived_count"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -11,6 +11,6 @@
 # t.string :sun_needed
 # t.string :health
 
-Plant.create(name: 'Succulent', home_date: '1/10/21', water_frequency: '3x per day', health: 'Good')
-Plant.create(name: 'Basil', home_date: '1/10/21', water_frequency: '2x per day', health: 'Good')
-Plant.create(name: 'Rosemary', home_date: '1/10/21', water_frequency: '1x per day', health: 'Good')
+Plant.create(name: 'Succulent', home_date: '1/10/21', water_frequency: 3, health: 'Good', deprived_count: 0)
+Plant.create(name: 'Basil', home_date: '1/10/21', water_frequency: 2, health: 'Struggling', deprived_count: 1)
+Plant.create(name: 'Rosemary', home_date: '1/10/21', water_frequency: 1, health: 'Dead', deprived_count: 2)

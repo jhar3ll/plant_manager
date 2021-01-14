@@ -46,6 +46,6 @@ class PlantsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def plant_params
-      params.require(:plant).permit(:name, :home_date, :water_frequency, :health)
+      params.require(:plant).permit(:name, :home_date, :water_frequency, :health, :deprived_count)
     end
 end
