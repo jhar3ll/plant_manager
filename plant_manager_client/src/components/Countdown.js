@@ -1,16 +1,33 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
-export default class Countdown extends Component {
-
+class Countdown extends Component {
+    
     state = {
-        hours: 0,
-        minutes: 5,
-        seconds: 10
+        hours: (24 / this.props.hours),
+        minutes: 0,
+        seconds: 0,
+        text_color: 'green'
     }
 
     componentDidMount() {
         this.myInterval = setInterval(() => {
             const { hours, minutes, seconds } = this.state
+
+            if (hours > 4){
+                this.setState(({ text_color }) => ({
+                    text_color: 'green'
+                }))
+            } else if (hours < 4 && hours > 2){
+                this.setState(({ text_color }) => ({
+                    text_color: 'yellow'
+                }))
+            } else {
+                this.setState(({ text_color }) => ({
+                    text_color: 'red'
+                }))
+            }
+            
 
             if (seconds > 0) {
                 this.setState(({ seconds }) => ({
@@ -51,13 +68,23 @@ export default class Countdown extends Component {
     }
 
     render() {
-        const { hours, minutes, seconds } = this.state
+        
+        const { hours, minutes, seconds, text_color } = this.state
+
         return (
             <div>
-                { 
-                     <h1>Time Remaining: {hours}:{minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                {  
+                     <h1 style={{color: text_color}}> {hours}:{minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                     
                 }
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return { countdown: state.countdown }
+  }
+  
+  export default connect(mapStateToProps)(Countdown);
+  
