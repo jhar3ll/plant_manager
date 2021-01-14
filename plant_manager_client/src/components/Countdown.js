@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
+
 
 class Countdown extends Component {
     
     state = {
-        hours: (24 / this.props.hours),
+        hours: (24 / this.props.plants.water_frequency),
+        //hours: 0,
         minutes: 0,
         seconds: 0,
         text_color: 'green'
@@ -68,7 +69,6 @@ class Countdown extends Component {
     }
 
     render() {
-        
         const { hours, minutes, seconds, text_color } = this.state
 
         return (
@@ -82,9 +82,5 @@ class Countdown extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return { countdown: state.countdown }
-  }
-  
-  export default connect(mapStateToProps)(Countdown);
+export default Countdown
   

@@ -37,7 +37,7 @@ class PlantsForm extends Component {
                <br />
 
                <label>Water Frequency:</label>
-               <input type='text' placeholder='times per day' value={this.state.water_frequency} onChange={this.handleChange} name='water_frequency'/>
+               <input type='text' placeholder='times per day (1,2,3 or 4)' value={this.state.water_frequency} onChange={this.handleChange} name='water_frequency'/>
                <br />
 
                <input type='submit' value='Add Plant'/>

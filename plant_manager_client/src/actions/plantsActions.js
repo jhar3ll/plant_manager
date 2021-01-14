@@ -20,3 +20,15 @@ export const addPlant = plant => {
     }
     
 }
+
+export const plantStruggling = plant => {
+    return dispatch => {
+
+    }
+}
+
+export const plantDead = plant => {
+    return dispatch => {
+
+    }
+}
