@@ -1,5 +1,3 @@
-//fetch all plants from API
-
 export const fetchPlants = () => {
     return (dispatch) => {
         fetch('http://localhost:3000/plants')
@@ -21,14 +19,11 @@ export const addPlant = plant => {
     
 }
 
-export const plantStruggling = plant => {
+export const deprivePlant = (plant) => {
     return dispatch => {
-
+        
+        dispatch({ type: 'ADD_PLANT', payload: plant.deprived_count + 1})
     }
+    
 }
 
-export const plantDead = plant => {
-    return dispatch => {
-
-    }
-}

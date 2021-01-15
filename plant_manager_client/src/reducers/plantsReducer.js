@@ -4,10 +4,9 @@ export const plantsReducer = (state = [], action) => {
             return action.payload
         case 'ADD_PLANT':
             return [...state, action.payload]
-        case 'PLANT_STRUGGLING':
-            return [...state, 
-        case 'PLANT_DEAD':
-            return state
+        case 'DEPRIVE_PLANT':
+            debugger
+            return action.payload
         default:
             return state
     }

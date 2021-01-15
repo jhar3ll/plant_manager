@@ -8,7 +8,8 @@ class PlantsForm extends Component {
         name: '',
         home_date: '',
         water_frequency: '',
-        health: 'Good'
+        health: 'Good',
+        deprived_count: 0
     }
    
 

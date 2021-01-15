@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
+import { deprivePlant } from '../actions/plantsActions'
+import { connect } from 'react-redux'
 
 
 class Countdown extends Component {
     
     state = {
-        hours: (24 / this.props.plants.water_frequency),
-        //hours: 0,
+       // hours: (24 / this.props.plants.water_frequency),
+        hours: 0,
         minutes: 0,
-        seconds: 0,
+        seconds: 3,
         text_color: 'green'
     }
 
@@ -59,6 +61,7 @@ class Countdown extends Component {
             } 
 
             if ((seconds === 0 && minutes === 0 && hours === 0)){
+                this.props.deprivePlant(this.props.plants)
                 clearInterval(this.myInterval) 
             } 
         }, 1000)
@@ -70,7 +73,6 @@ class Countdown extends Component {
 
     render() {
         const { hours, minutes, seconds, text_color } = this.state
-
         return (
             <div>
                 {  
@@ -80,7 +82,15 @@ class Countdown extends Component {
             </div>
         )
     }
+} 
+
+const mapDispatchToProps = (dispatch) => ({
+    deprivePlant: (plant) => dispatch(deprivePlant(plant))
+})
+
+const mapStateToProps = state => {
+    return { plantsFromState: state.plants}
 }
 
-export default Countdown
+export default connect(mapStateToProps, mapDispatchToProps)(Countdown)
   

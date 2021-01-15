@@ -1,22 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPlants } from '../actions/plantsActions'
-import { plantStruggling } from '../actions/plantsActions'
-import { plantDead } from '../actions/plantsActions'
-
 
 class PlantsContainer extends Component {
 
 
     componentDidMount() {
         this.props.fetchPlants()
-
-        
-        if (this.props.plants.deprived_count === 1){
-            this.setState(({ health }) => ({
-                health: 'struggling'
-            }))
-        }
     }
    
 
@@ -28,9 +18,7 @@ class PlantsContainer extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchPlants: () => dispatch(fetchPlants()),
-    plantStruggling: () => dispatch(plantStruggling()),
-    plantDead: () => dispatch(plantDead()), 
+    fetchPlants: () => dispatch(fetchPlants())
 })
 
 const mapStateToProps = state => {
