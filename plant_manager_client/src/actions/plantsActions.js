@@ -19,11 +19,3 @@ export const addPlant = plant => {
     
 }
 
-export const deprivePlant = (plant) => {
-    return dispatch => {
-        
-        dispatch({ type: 'ADD_PLANT', payload: plant.deprived_count + 1})
-    }
-    
-}
-
