@@ -8,7 +8,6 @@ class Countdown extends Component {
     
     state = {
         hours: (24 / this.props.plants.water_frequency),
-       // hours: 0,
         minutes: 0,
         seconds: 0,
         text_color: 'green'
