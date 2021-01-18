@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { deprivePlant } from '../actions/plantsActions'
+import { waterPlant } from '../actions/plantsActions'
+import Emoji from './Emoji'
 
 class Countdown extends Component {
     
@@ -13,7 +15,6 @@ class Countdown extends Component {
     }
 
     componentDidMount() {
-        
         this.myInterval = setInterval(() => {
             const { hours, minutes, seconds } = this.state
 
@@ -70,24 +71,40 @@ class Countdown extends Component {
     componentWillUnmount() {  
         clearInterval(this.myInterval)
     }
+    
+    handleClick = () => {
+        this.props.waterPlant(this.props.plants)
+        this.setState(({ hours, minutes, seconds }) => ({
+            hours: (24 / this.props.plants.water_frequency),
+            minutes: 0,
+            seconds: 0
+        }))
+    }
 
     render() {
         const { hours, minutes, seconds, text_color } = this.state
         return (
             <div>
                 {  
-                     <h1 style={{color: text_color}}> {hours}:{minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
-                     
+                     <h3 style={{color: text_color}}> 
+                     <button className='waterPlant' onClick={this.handleClick}> <Emoji symbol='water 💦 '/> </button> {hours}:{minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+                     </h3>
                 }
+                
             </div>
         )
     }
 } 
 
+const mapStateToProps = state => {
+    return { plantsFromState: state.plants}
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
-    deprivePlant: plant => dispatch(deprivePlant(plant))
+    deprivePlant: depPlant => dispatch(deprivePlant(depPlant)),
+    waterPlant: watPlant => dispatch(waterPlant(watPlant))
     }
 }
 
-export default connect(null, mapDispatchToProps)(Countdown)
+export default connect(mapStateToProps, mapDispatchToProps)(Countdown)

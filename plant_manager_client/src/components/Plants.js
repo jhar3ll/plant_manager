@@ -22,9 +22,7 @@ const Plants = ({ plants }) => {
                 <li key={plant.id}>
             <h3> 
                 {plant.name} brought home on {plant.home_date}. Needs to be watered {plant.water_frequency} times per day. 
-                Plant status: <Emoji symbol={plantColor(plant)}/>
-                
-                <Countdown plants={plant}/>
+                Plant status: <Emoji symbol={plantColor(plant)}/> <Countdown plants={plant}/>
                 </h3>
             </li>
             </ul>)}
