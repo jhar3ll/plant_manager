@@ -1,28 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Countdown from './Countdown';    
+import Emoji from './Emoji'
 
 
 const Plants = ({ plants }) => {
 
-const allPlants = (p) => {  
-        if (p.deprived_count === 0){
-            return 'good!'
-        } else if (p.deprived_count === 1){
-            return 'struggling!'
+    const plantColor = (plant) => {  
+        if (plant.deprived_count === 0){
+            return '💐'
+        } else if (plant.deprived_count === 1){
+            return '🌱'
         } else {
-            return 'dead :( '
+            return '🥀'
         }
     }
-
 
     return (
         <div>
             {plants.map(plant => <ul>
                 <li key={plant.id}>
-            <h3>
+            <h3> 
                 {plant.name} brought home on {plant.home_date}. Needs to be watered {plant.water_frequency} times per day. 
-                Currently {allPlants(plant)} <Countdown plants={plant}/>
+                Plant status: <Emoji symbol={plantColor(plant)}/>
+                
+                <Countdown plants={plant}/>
                 </h3>
             </li>
             </ul>)}
