@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2021_01_07_031153) do
     t.string "name"
     t.string "home_date"
     t.integer "water_frequency"
-    t.string "health"
     t.integer "deprived_count"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
