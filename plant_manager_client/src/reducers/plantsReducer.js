@@ -5,13 +5,11 @@ export const plantsReducer = (state = [], action) => {
         case 'ADD_PLANT':
             return [...state, action.payload]
         case 'DEPRIVE_PLANT':
-            console.log(action)
-        //    const deprivedPlant = state.filter(plant => {
-        //        return action.id === plant.id
-        //    })
-           
-            return state
-          //  return {...state, plants: (state.plants.deprived_count + 1)}
+            const index = state.findIndex(n => n.id === action.payload.id)
+            const newArray = [...state]
+            newArray[index].deprived_count += 1
+        return newArray
+        
         default:
             return state
     }

@@ -8,8 +8,6 @@ import App from './components/App'
 import { rootReducer } from './reducers/rootReducer'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-
-
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDom.render(

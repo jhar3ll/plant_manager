@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { deprivePlant } from '../actions/plantsActions'
 
 class Countdown extends Component {
     
@@ -7,14 +8,13 @@ class Countdown extends Component {
        // hours: (24 / this.props.plants.water_frequency),
         hours: 0,
         minutes: 0,
-        seconds: 3,
+        seconds: 6,
         text_color: 'green'
     }
    
 
     componentDidMount() {
-        console.log(this.props)
-
+        
         this.myInterval = setInterval(() => {
             const { hours, minutes, seconds } = this.state
 
@@ -62,7 +62,7 @@ class Countdown extends Component {
             } 
 
             if ((seconds === 0 && minutes === 0 && hours === 0)){
-                this.props.deprivePlant(this.props.plants.id)
+                this.props.deprivePlant(this.props.plants)
                 clearInterval(this.myInterval) 
             } 
         }, 1000)
@@ -86,12 +86,13 @@ class Countdown extends Component {
 } 
 
 const mapStateToProps = state => {
-    return { plants: state.plants}
+    return { plantsFromState: state.plants}
+    
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
-    deprivePlant: (id) => { dispatch({type: 'DEPRIVE_PLANT', id: id})}
+    deprivePlant: plant => dispatch(deprivePlant(plant))
     }
 }
 
