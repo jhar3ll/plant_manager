@@ -19,10 +19,10 @@ export const addPlant = plant => {
     
 }
 
-export const deprivePlant = (id) => {
+export const deprivePlant = (plant) => {
     return {
         type: 'DEPRIVE_PLANT',
-        payload: id
+        payload: plant
     }
 }
 

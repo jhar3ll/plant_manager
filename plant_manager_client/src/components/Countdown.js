@@ -11,7 +11,6 @@ class Countdown extends Component {
         seconds: 6,
         text_color: 'green'
     }
-   
 
     componentDidMount() {
         
@@ -85,16 +84,10 @@ class Countdown extends Component {
     }
 } 
 
-const mapStateToProps = state => {
-    return { plantsFromState: state.plants}
-    
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
     deprivePlant: plant => dispatch(deprivePlant(plant))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Countdown)
-  
+export default connect(null, mapDispatchToProps)(Countdown)

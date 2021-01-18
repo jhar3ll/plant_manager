@@ -8,7 +8,7 @@ class PlantsForm extends Component {
         name: '',
         home_date: '',
         water_frequency: '',
-        health: 'Good',
+        health: '',
         deprived_count: 0
     }
    
@@ -20,6 +20,8 @@ class PlantsForm extends Component {
             [name]: value
         })
     }
+
+    
 
     handleSubmit = event => {
         event.preventDefault()

@@ -4,8 +4,6 @@ import About from './About'
 import Home from './Home'
 import Plants from './Plants'
 
-
-
 const Router = () => {
     return (  
        <Switch>
