@@ -30,10 +30,14 @@ const Plants = ({ plants }) => {
             {plants.map(plant => 
             <ul>
                 <li key={plant.id}>
-                    <h3> {plant.name} brought home on {plant.home_date}. Needs to be watered {plant.water_frequency} times per day. 
+                    {plant.deprived_count <= 1 ?
+                        <h3> {plant.name} brought home on {plant.home_date}. Needs to be watered {plant.water_frequency} times per day. 
                         Plant status: <Emoji symbol={plantStatus(plant)}/> <Countdown plants={plantTimer(plant)}/>
-                </h3>
-            </li>
+                        </h3>
+                        : 
+                        <h3> Your {plant.name} plant brought home on {plant.home_date} has died. <Emoji symbol={plantStatus(plant)}/> </h3>
+                    }
+                </li>
             </ul>)}
         </div>
     );
