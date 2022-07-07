@@ -6,7 +6,7 @@ import Emoji from './Emoji'
 
 const Plants = ({ plants }) => {
 
-    const plantEmoji = (plant) => {  
+    const plantStatus = (plant) => {  
         if (plant.deprived_count === 0){
             return '💐'
         } else if (plant.deprived_count === 1){
@@ -16,13 +16,22 @@ const Plants = ({ plants }) => {
         }
     }
 
+    const plantTimer = (plant) =>{
+        if (plant.deprived_count <= 1){
+            return plant
+        } else {
+            return 1
+        }
+    }
+    // {hours}:{minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+
     return (
         <div>
-            {plants.map(plant => <ul>
+            {plants.map(plant => 
+            <ul>
                 <li key={plant.id}>
-            <h3> 
-                {plant.name} brought home on {plant.home_date}. Needs to be watered {plant.water_frequency} times per day. 
-                Plant status: <Emoji symbol={plantEmoji(plant)}/> <Countdown plants={plant}/>
+                    <h3> {plant.name} brought home on {plant.home_date}. Needs to be watered {plant.water_frequency} times per day. 
+                        Plant status: <Emoji symbol={plantStatus(plant)}/> <Countdown plants={plantTimer(plant)}/>
                 </h3>
             </li>
             </ul>)}
