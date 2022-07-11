@@ -23,7 +23,6 @@ const Plants = ({ plants }) => {
             return 1
         }
     }
-    // {hours}:{minutes}:{seconds < 10 ? `0${seconds}` : seconds}
 
     return (
         <div>
