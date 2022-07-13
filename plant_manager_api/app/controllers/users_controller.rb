@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    @user = User.find_by_id(params[:id])
+    @plant = @user.plants
   end
 
   # POST /users
@@ -46,6 +47,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :number_of_plants)
+      params.require(:user).permit(:username, :password)
     end
 end

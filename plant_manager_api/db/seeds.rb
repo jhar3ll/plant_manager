@@ -10,9 +10,9 @@
 # t.string :water_frequency
 # t.string :sun_needed
 # t.string :health
-
-Plant.create(name: 'Succulent', home_date: '1/10/21', water_frequency: 3, deprived_count: 0, user_id:1)
-Plant.create(name: 'Basil', home_date: '1/10/21', water_frequency: 2, deprived_count: 1)
-Plant.create(name: 'Rosemary', home_date: '1/10/21', water_frequency: 1, deprived_count: 2)
-Plant.create(name: 'Parsley', home_date: '1/10/21', water_frequency: 24, deprived_count: 1)
 User.create(username: 'Jharell')
+User.create(username: "Thomas")
+Plant.create(name: 'Succulent', home_date: '1/10/21', water_frequency: 3, deprived_count: 0, user_id:1)
+Plant.create(name: 'Basil', home_date: '1/10/21', water_frequency: 2, deprived_count: 1, user_id:2)
+Plant.create(name: 'Rosemary', home_date: '1/10/21', water_frequency: 1, deprived_count: 2, user_id:3)
+Plant.create(name: 'Parsley', home_date: '1/10/21', water_frequency: 24, deprived_count: 1, user_id:3)
