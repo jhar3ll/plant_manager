@@ -1,8 +1,8 @@
-export const fetchUsers = () => {
+export const fetchUser = (user_id) => {
     return (dispatch) => {
-        fetch('http://localhost:3000/users')
+        fetch(`http://localhost:3000/users/${user_id}`)
         .then(resp => resp.json())
-        .then(plants => dispatch({ type: 'FETCH_PLANTS', payload: plants}))
+        .then(user => dispatch({ type: 'FETCH_USER', payload: user}))
     }
 }
 
